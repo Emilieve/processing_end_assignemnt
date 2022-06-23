@@ -11,6 +11,7 @@ void setup(){
   size(940,788);
   perlinwave = new Perlinwave();
   background = new Background();
+  shootwater = new Shootwater();
   //background.display();
 }
 
@@ -19,6 +20,7 @@ void draw(){
   background.update();
   perlinwave.update();
   perlinwave.display();
+  shootwater.display();
   //duck.update(fishes.location);
   //duck.display();
   //fishes.update();
@@ -26,7 +28,10 @@ void draw(){
   //shootwater.display();
 }
 
-void mouseClicked(){
-  //shootwater.shoot(mouse);
-  //duck.shot(mouse);
+void mousePressed() {
+  shootwater.pressed();
+  //duck.shot()
+}
+void mouseReleased() {
+  shootwater.released();
 }

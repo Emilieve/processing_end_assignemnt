@@ -1,37 +1,47 @@
 class Perlinwave {
 
   //set variables for the perlinwave
-  float yoff = 0.0;
-  float yincrement = 0.01;
-  int width = 940; //maybe this can be done smarter
+  float yoff = 1;
+  float yincrement = 0.0025;
   float[] yCoordinates = new float[width];
 
   Perlinwave() {
-    for (int i = 0; i < yCoordinates.length-1; i++) {
-      yCoordinates[i] = noise(yoff)*height;
+    for (int i = 0; i < yCoordinates.length; i++) {
+      yCoordinates[i] = map(noise(yoff),0,1,500,700);
       yoff += yincrement; //changing yoff by the increment so that the next y coordinate is not based on the same yoff value
+      println(yoff);
     }
   }
 
   void update() {
-
+    
+    //adjusting the yoff to get a new y coordinate in the next update
+    yoff += yincrement;
+    
     //duck.perlinwaveheight(perlinwave.height1, perlinwave.height2, perlinewave.height3);
 
-    stroke(#3997F7); //stroke for the perlin wave where inside the brackets is the color
-
     //moving all the coordinated one to the left to get the illusion of a moving wave
-    yCoordinates[0] = yCoordinates[1]; //since it is 0 we need to do it manually
-    for (int i = 1; i < yCoordinates.length-1; i++) {
+    for (int i = 0; i < width-1; i++) {
       yCoordinates[i] = yCoordinates[i+1];
     }
-    yCoordinates[yCoordinates.length-1] = noise(yoff)*height; //creating a new y coordinate for the last y coordinate
-
-    yoff += yincrement; //adjusting the yoff to get a new y coordinate in the next update
+    
+    //creating a new y coordinate for the last y coordinate
+    yCoordinates[width-1] = map(noise(yoff),0,1,500,700);      
   }
 
   void display() {
-    for (int i = 1; i < yCoordinates.length-1; i++) {
-      line(i-1, yCoordinates[i-1], i, yCoordinates[i]);
+    fill(#3997F7);
+    noStroke();
+    
+    beginShape(); 
+    vertex(0, height);
+    
+    for (int i = 0; i < width-1; i++) {
+      vertex(i, yCoordinates[i]);
+      vertex(i+1, yCoordinates[i+1]);
     }
+    
+    vertex(width, height);
+    endShape(CLOSE);
   }
 }
