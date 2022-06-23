@@ -1,0 +1,6 @@
+class Background {
+  
+  void display(){
+    
+  }
+}
