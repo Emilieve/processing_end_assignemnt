@@ -1,7 +1,7 @@
 class Duck {
   
   void update(PVector fishes_location){
-    fishes.duckdiving(duck_diving);
+    //fishes.duckdiving(duck_diving);
   }
   
   void display(){
