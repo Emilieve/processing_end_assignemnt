@@ -29,18 +29,18 @@ class Massdampersystem {
   }
 
   void show () { //showing t on the canvas
-    translate(width/4, height); //setup the flower in the screen on the bottom
-    pushMatrix(); //rotating
-    for (int i = 0; i < part.length; i++) {
-      if (i == part.length -1 ) //add image of the flower to the rear part
-      {
-        image(image, -50, -50);
-        println("dsdd:");
-      } else {
-        part[i].render();   // render everything!
-        println("moving");
-      }
-    }
-    popMatrix(); //getting the matrix back to normal
+    //translate(mouseX, mouseY); //setup the flower in the screen on the bottom
+    //pushMatrix(); //rotating
+    //for (int i = 0; i < part.length; i++) {
+    //  if (i == part.length -1 ) //add image of the flower to the rear part
+    //  {
+    //    image(image, -50, -50);
+    //    println("dsdd:");
+    //  } else {
+    //    part[i].render();   // render everything!
+    //    println("moving");
+    //  }
+    //}
+    //popMatrix(); //getting the matrix back to normal
   }
 }

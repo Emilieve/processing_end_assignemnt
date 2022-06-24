@@ -5,10 +5,10 @@ class Part {
   float force, velocity, angle, mass, SpringConstant, resistance, lengthSegment;
 
   Part () {
-    mass = 1;
-    resistance = 0.35; // resistance
+    mass = 5;
+    resistance = 1; // resistance
     lengthSegment = 10;
-    SpringConstant = 4;    // how strong the spring is
+    SpringConstant = 3.5;    // how strong the spring is
   }
 
   void update (float v, float f) {
