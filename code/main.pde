@@ -3,9 +3,10 @@ Background background;
 Fishes fishes;
 Duck duck;
 Shootwater shootwater;
+Massdampersystem massdampersystem;
 
-int ducklocation1 = 300;
-int ducklocation2 = 600;
+int ducklocation1 = 250;
+int ducklocation2 = 650;
 
 void setup(){
   size(940,788);
@@ -13,6 +14,7 @@ void setup(){
   background = new Background();
   shootwater = new Shootwater();
   duck = new Duck(ducklocation1, ducklocation2);
+  massdampersystem = new Massdampersystem();
   //background.display();
 }
 
@@ -23,6 +25,8 @@ void draw(){
   perlinwave.update(ducklocation1, ducklocation2);
   perlinwave.display();
   shootwater.display();
+  massdampersystem.update();
+  massdampersystem.show();
   //duck.update(fishes.location);
   
   //fishes.update();
