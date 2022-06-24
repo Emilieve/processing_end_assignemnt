@@ -27,6 +27,7 @@ void setup(){
 }
 
 void draw(){
+  imageMode(CORNER);
   background.display();
   background.update();
   duck.display(perlinwave.waveheight1, perlinwave.waveheight2);
