@@ -2,6 +2,9 @@ class Background {
   int offset = -600;
   int step = 1;
   int imageHeight = -150;
+  
+  PImage backgroundImage;
+  PImage cloudImage;
 
   Background() {
     backgroundImage = loadImage("Background.png");

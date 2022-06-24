@@ -4,16 +4,17 @@ class Perlinwave {
   float yoff = 1;
   float yincrement = 0.0025;
   float[] yCoordinates = new float[width];
+  float waveheight1;
+  float waveheight2;
 
   Perlinwave() {
     for (int i = 0; i < yCoordinates.length; i++) {
       yCoordinates[i] = map(noise(yoff),0,1,500,700);
       yoff += yincrement; //changing yoff by the increment so that the next y coordinate is not based on the same yoff value
-      println(yoff);
     }
   }
 
-  void update() {
+  void update(int locationduck1, int locationduck2) {
     
     //adjusting the yoff to get a new y coordinate in the next update
     yoff += yincrement;
@@ -26,7 +27,11 @@ class Perlinwave {
     }
     
     //creating a new y coordinate for the last y coordinate
-    yCoordinates[width-1] = map(noise(yoff),0,1,500,700);      
+    yCoordinates[width-1] = map(noise(yoff),0,1,500,700);
+    
+    waveheight1 = yCoordinates[locationduck1];
+    waveheight2 = yCoordinates[locationduck2];
+    
   }
 
   void display() {
