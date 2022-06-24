@@ -32,9 +32,25 @@ class Perlinwave {
     waveheight1 = yCoordinates[locationduck1];
     waveheight2 = yCoordinates[locationduck2];
     
+    
   }
 
   void display() {
+    
+     fill(255,255,255);
+    noStroke();
+    
+    beginShape(); 
+    vertex(0, height);
+    
+    for (int i = 0; i < width-1; i++) {
+      vertex(i, yCoordinates[i]-10);
+      vertex(i+1, yCoordinates[i+1]-30);
+    }
+    
+    vertex(width, height);
+    endShape(CLOSE);
+    
     fill(#3997F7);
     noStroke();
     
@@ -48,5 +64,8 @@ class Perlinwave {
     
     vertex(width, height);
     endShape(CLOSE);
+    
+    
+   
   }
 }
