@@ -90,7 +90,7 @@ class Boid {
     popMatrix();
   }
 
-//Borders 
+  //Borders
   void borders() {
     if (position.x <= -r && velocity.x<0) velocity.x = velocity.x *= -1;
     if (position.x >= width+r && velocity.x>0) velocity.x = velocity.x *= -1;
@@ -112,7 +112,7 @@ class Boid {
       // Normalize desired and scale to maximum speed
       desired.normalize();
       desired.mult(maxspeed);
-
+      bubbles.changeLoc(position); //change the loction of swimming bubbles
       // Steering = Desired minus Velocity
       PVector steer = PVector.sub(desired, velocity);
       steer.limit(maxforce);  // Limit to maximum steering force

@@ -4,7 +4,7 @@ class Massdampersystem {
 
   float wind;
   PImage image;
-  Part[] part = new Part[20]; //adding new parts
+  Part[] part = new Part[4]; //adding new parts
 
   Massdampersystem () {
     for (int i = 0; i < part.length; i++) {

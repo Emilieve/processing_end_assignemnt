@@ -6,12 +6,20 @@ Shootwater shootwater;
 Massdampersystem massdampersystem;
 Flock flock;
 Obstacle obstacle;
+Bubble_System bubbles;
+Bubble bubble;
+
+int particlesAmount = 100;
+
+PVector center;
 
 int ducklocation1 = 250;
 int ducklocation2 = 650;
 
 void setup(){
   size(940,788);
+  PVector startPosBubbles = new PVector (width, height);
+  bubbles = new Bubble_System(startPosBubbles);
   perlinwave = new Perlinwave();
   background = new Background();
   shootwater = new Shootwater();
@@ -34,6 +42,9 @@ void draw(){
   perlinwave.update(ducklocation1, ducklocation2);
   perlinwave.display();
   shootwater.display();
+  bubbles.run(); //always run the bubbles but only show when triggered
+  
+
   flock.run();
   massdampersystem.update();
   massdampersystem.show();
