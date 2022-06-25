@@ -42,6 +42,7 @@ class Shootwater {
       }
     } else {
       diameter=originalDiameter;
+      obstacle.diving(0,0);
     }
   }
 }
