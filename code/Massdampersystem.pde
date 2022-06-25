@@ -4,7 +4,7 @@ class Massdampersystem {
 
   float wind;
   PImage image;
-  Part[] part = new Part[20]; //adding new parts
+  Part[] part = new Part[4]; //adding new parts
 
   Massdampersystem () {
     for (int i = 0; i < part.length; i++) {
@@ -16,6 +16,7 @@ class Massdampersystem {
   }
 
   void update () {
+
     for (int i = 0; i < part.length; i++) { //loop funciton for updating
       if (i == 0) {
         part[i].update(0, part[i+1].force + wind); // velocity = 0 > there is not a part bellow here

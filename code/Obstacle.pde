@@ -1,10 +1,10 @@
 class Obstacle {
   PVector position;
   Obstacle() {
-    position = new PVector (200, 200);
+    position = new PVector (0, 0);
   }
 
-  void render() {
-    square(position.x, position.y, 100);
+  void diving(int positionX, int positionY) {
+    position = new PVector(positionX+70, positionY);
   }
 }

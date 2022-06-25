@@ -32,17 +32,17 @@ class Duck {
     pushMatrix(); //rotating
 
     
-    translate(ducklocation1, duckheight1 +150);
+    translate(ducklocation1, duckheight1 +0);
     //setup the flower in the screen on the bottom
     for (int i = 0; i < part.length; i++) {
       if (i == part.length -1 ) //add image of the flower to the rear part
       {
         imageMode(CORNER);
-        image(duckImage, -duckImage.width/2, -150);
-        println("dsdd:");
+        image(duckImage, -duckImage.width/2, -170);
+        //println("dsdd:");
       } else {
         part[i].render();   // render everything!
-        println("moving");
+        //println("moving");
       }
     }
     popMatrix(); //getting the matrix back to normal
@@ -53,21 +53,23 @@ class Duck {
   void duckfall() {
     boolean hit = hitImage(mouseX, mouseY, ducklocation1, ducklocation2, duckheight1, duckheight2, duckImage.width, duckImage.height);
     if (hit) {
-      massdampersystem.wind = 0.004;
+      massdampersystem.wind = 0.02;
+      obstacle.diving(mouseX, mouseY);
+     
     }
-    println("duckX " + ducklocation1 + " + " + "duckY " + duckheight1 + " + " + "width " + duckImage.width + " + " + "height " + duckImage.height + " + " + "mousex " + mouseX + "mouseY " + mouseY);
+   // println("duckX " + ducklocation1 + " + " + "duckY " + duckheight1 + " + " + "width " + duckImage.width + " + " + "height " + duckImage.height + " + " + "mousex " + mouseX + "mouseY " + mouseY);
   }
 
   boolean hitImage(float mouseposX, float mouseposY, float imagelefttopX, float duck2lefttopX, float imagelefttopY, float duck2lefttopY, float imageWidth, float imageHeight) {
     if (
       (mouseposX >= imagelefttopX &&
       mouseposX <= imagelefttopX + imageWidth &&
-      mouseposY >= imagelefttopY +15 && //15 as a buffer > hitting the top top does not work
-      mouseposY <= imagelefttopY + imageHeight) ||
+      mouseposY >= imagelefttopY -200 && //200 as a buffer > hitting the top top does not work
+      mouseposY <= imagelefttopY-200 + imageHeight) ||
       (mouseposX >= duck2lefttopX &&
       mouseposX <= duck2lefttopX + imageWidth &&
-      mouseposY >= duck2lefttopY +15 && //15 as a buffer > hitting the top top does not work
-      mouseposY <= duck2lefttopY + imageHeight)
+      mouseposY >= (duck2lefttopY -200) && //200 as a buffer > hitting the top top does not work
+      mouseposY <= (duck2lefttopY-200) + imageHeight)
       ) { //imageHeight/2 bc should hit the duck not the stick
       return true;
     }
